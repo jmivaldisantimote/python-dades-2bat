@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducció a Pandas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Introducció a Pandas</h1>
+      <p>Descobreix com Pandas ajuda a organitzar, netejar i analitzar dades en taules amb Python.</p>
+      <div class="hero-buttons">
+        <a href="index.html" class="button primary">Tornar a l'inici</a>
+        <a href="#introduccio" class="button primary">Introducció</a>
+        <a href="#perque" class="button primary">Per què utilitzar-la</a>
+        <a href="#instalacio" class="button primary">Instal·lació</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-bar" aria-label="Navegació principal">
+    <a href="index.html" class="nav-link">Inici</a>
+    <span class="nav-link active" aria-current="page">Pandas</span>
+    <a href="numpy.html" class="nav-link">NumPy</a>
+    <a href="matplotlib.html" class="nav-link">Matplotlib / Seaborn</a>
+  </nav>
+
+  <main class="container">
+    <section class="summary" id="introduccio">
+      <h2>💡 Introducció</h2>
+      <p><strong>Pandas</strong> és una llibreria de Python pensada per treballar amb dades tabulars. Permet llegir fitxers, organitzar informació en taules i fer operacions d'anàlisi amb molta facilitat.</p>
+      <p>La unitat bàsica de Pandas és el <strong>DataFrame</strong>, una taula molt semblant a una fulla de càlcul. També existeixen els <strong>Series</strong>, que són columnes individuals de dades.</p>
+      <p>Pandas és molt utilitzada en ciència de dades, estadística, finances i qualsevol àmbit on cal gestionar informació estructurada.</p>
+    </section>
+
+    <section class="cards" id="perque">
+      <article class="card">
+        <h3>📊 Organitzar dades</h3>
+        <p>Pandas facilita ordenar, filtrar i revisar dades de manera molt intuïtiva. És ideal per convertir informació bruta en dades útils per a l'anàlisi.</p>
+        <pre><code>import pandas as pd
+
+dades = pd.DataFrame({'nom': ['Anna', 'Pau'], 'nota': [8, 6]})
+print(dades)</code></pre>
+      </article>
+
+      <article class="card">
+        <h3>🧹 Netejar dades</h3>
+        <p>Permet eliminar valors buits, canviar noms de columnes i corregir errors de forma ràpida, cosa que és molt important en projectes reals.</p>
+        <pre><code>import pandas as pd
+
+dades = pd.DataFrame({'edat': [16, None, 17]})
+print(dades.dropna())</code></pre>
+      </article>
+    </section>
+
+    <section class="summary">
+      <h2>⚡ Per què utilitzar Pandas?</h2>
+      <p>Pandas destaca perquè:</p>
+      <ul>
+        <li><strong>Gestiona dades tabulars</strong> amb facilitat.</li>
+        <li><strong>Permet filtrar i ordenar</strong> informació ràpidament.</li>
+        <li><strong>És compatible amb NumPy</strong> i amb gràfiques de Matplotlib.</li>
+        <li><strong>Simplifica l'anàlisi</strong> de grans conjunts de dades.</li>
+      </ul>
+      <p>És una eina clau per transformar dades en informació útil abans de representar-les o interpretar-les.</p>
+    </section>
+
+    <section class="extra" id="instalacio">
+      <h2>🛠️ Instal·lació i importació</h2>
+      <p>Per instal·lar Pandas, podem executar:</p>
+      <pre><code>pip install pandas</code></pre>
+      <p>I per començar a treballar amb ella:</p>
+      <pre><code>import pandas as pd</code></pre>
+      <p>Així, podem crear taules i treballar amb dades de forma clara i ordenada.</p>
+    </section>
+
+    <section class="summary">
+      <h2>🧪 Exemples pràctics de Pandas</h2>
+      <p>Aquests exemples mostren situacions molt habituals quan treballem amb dades.</p>
+
+      <article class="card">
+        <h3>Exemple 1: crear un DataFrame</h3>
+        <pre><code>import pandas as pd
+
+notes = pd.DataFrame({'alumne': ['Marta', 'Joan'], 'nota': [8.5, 6.0]})
+print(notes)</code></pre>
+        <p>Amb un DataFrame podem guardar dades de forma estructurada, com si fos una taula.</p>
+      </article>
+
+      <article class="card">
+        <h3>Exemple 2: filtrar dades</h3>
+        <pre><code>import pandas as pd
+
+dades = pd.DataFrame({'alumne': ['Marta', 'Joan', 'Laia'], 'nota': [9, 5, 7]})
+print(dades[dades['nota'] >= 7])</code></pre>
+        <p>Això ens permet seleccionar només les files que compleixen una condició.</p>
+      </article>
+
+      <article class="card">
+        <h3>Exemple 3: resumir dades</h3>
+        <pre><code>import pandas as pd
+
+notes = pd.Series([5, 7, 8, 6, 9])
+print(notes.mean())
+print(notes.max())</code></pre>
+        <p>Amb Pandas podem obtenir resums estadístics de manera molt ràpida.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Projecte didàctic de Python per a 2nBAT: introducció a Pandas per a l'anàlisi de dades.</p>
+  </footer>
+</body>
+</html>

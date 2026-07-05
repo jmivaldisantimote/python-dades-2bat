@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducció a Matplotlib i Seaborn</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Introducció a Matplotlib i Seaborn</h1>
+      <p>Aprèn a crear gràfics clars i atractius per interpretar dades amb Python.</p>
+      <div class="hero-buttons">
+        <a href="index.html" class="button primary">Tornar a l'inici</a>
+        <a href="#introduccio" class="button primary">Introducció</a>
+        <a href="#perque" class="button primary">Per què utilitzar-les</a>
+        <a href="#instalacio" class="button primary">Instal·lació</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-bar" aria-label="Navegació principal">
+    <a href="index.html" class="nav-link">Inici</a>
+    <a href="pandas.html" class="nav-link">Pandas</a>
+    <a href="numpy.html" class="nav-link">NumPy</a>
+    <span class="nav-link active" aria-current="page">Matplotlib / Seaborn</span>
+  </nav>
+
+  <main class="container">
+    <section class="summary" id="introduccio">
+      <h2>💡 Introducció</h2>
+      <p><strong>Matplotlib</strong> és la llibreria més utilitzada per crear gràfics a Python, mentre que <strong>Seaborn</strong> facilita visualitzacions més atractives i estadístiques.</p>
+      <p>Aquestes eines permeten mostrar tendències, comparacions i patrons en dades de manera molt visual. Són molt útils tant per a treballs acadèmics com per a presentacions i informes.</p>
+      <p>Normalment es combinen amb Pandas i NumPy per analitzar dades i després representar-les amb gràfics.</p>
+    </section>
+
+    <section class="cards" id="perque">
+      <article class="card">
+        <h3>📈 Gràfics de línia</h3>
+        <p>Matplotlib permet crear gràfics de línia per mostrar canvis al llarg del temps o evolucions de variables.</p>
+        <pre><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [2, 4, 6, 8]
+plt.plot(x, y)
+plt.show()</code></pre>
+      </article>
+
+      <article class="card">
+        <h3>📊 Gràfics de barres</h3>
+        <p>Seaborn facilita representar dades categòriques amb gràfics de barres molt visuals i fàcils d'interpretar.</p>
+        <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.barplot(x=['A', 'B', 'C'], y=[3, 5, 2])
+plt.show()</code></pre>
+      </article>
+    </section>
+
+    <section class="summary">
+      <h2>⚡ Per què utilitzar Matplotlib i Seaborn?</h2>
+      <p>Aquestes llibreries permeten:</p>
+      <ul>
+        <li><strong>Expressar resultats</strong> de forma visual.</li>
+        <li><strong>Comparar dades</strong> de manera ràpida i clara.</li>
+        <li><strong>Millorar la comprensió</strong> d'informació complexa.</li>
+        <li><strong>Crear gràfics professionals</strong> amb poc codi.</li>
+      </ul>
+      <p>És molt habitual utilitzar-les després d'haver tractat dades amb NumPy i Pandas.</p>
+    </section>
+
+    <section class="summary">
+      <h2>📊 Exemple visual amb Matplotlib</h2>
+      <p>Aquest gràfic mostra com podem representar una sèrie de dades amb una línia clara i llegible.</p>
+      <div class="visual-demo">
+        <img src="images/plot-matplotlib.svg" alt="Gràfic de línia creat amb Matplotlib">
+      </div>
+      <p class="visual-caption">Exemple de gràfic de línia amb eixos, títol i punts marcats.</p>
+      <pre><code>import matplotlib.pyplot as plt
+
+anys = [2020, 2021, 2022, 2023]
+valor = [10, 15, 13, 20]
+plt.plot(anys, valor, marker='o')
+plt.title('Evolució de les dades')
+plt.xlabel('Any')
+plt.ylabel('Valor')
+plt.show()</code></pre>
+    </section>
+
+    <section class="extra" id="instalacio">
+      <h2>🛠️ Instal·lació i importació</h2>
+      <p>Per instal·lar aquestes llibreries, podem fer servir:</p>
+      <pre><code>pip install matplotlib seaborn</code></pre>
+      <p>I després importar-les així:</p>
+      <pre><code>import matplotlib.pyplot as plt
+import seaborn as sns</code></pre>
+      <p>Així podem començar a generar gràfics de forma senzilla.</p>
+    </section>
+
+    <section class="summary">
+      <h2>🧪 Exemples pràctics</h2>
+      <p>Alguns exemples molt útils per entendre el potencial de la visualització de dades.</p>
+
+      <article class="card">
+        <h3>Exemple 1: gràfic de línia</h3>
+        <pre><code>import matplotlib.pyplot as plt
+
+anys = [2020, 2021, 2022, 2023]
+valor = [10, 15, 13, 20]
+plt.plot(anys, valor, marker='o')
+plt.show()</code></pre>
+        <p>És ideal per mostrar l’evolució d’un valor al llarg del temps.</p>
+      </article>
+
+      <article class="card">
+        <h3>Exemple 2: gràfic de dispersió</h3>
+        <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.scatterplot(x=[1, 2, 3, 4], y=[2, 4, 3, 5])
+plt.show()</code></pre>
+        <p>Ajuda a veure relacions entre dues variables.</p>
+      </article>
+
+      <article class="card">
+        <h3>Exemple 3: gràfic de barres</h3>
+        <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.barplot(x=['A', 'B', 'C'], y=[4, 7, 5])
+plt.show()</code></pre>
+        <p>És perfecte per comparar categories o resultats.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Projecte didàctic de Python per a 2nBAT: visualització de dades amb Matplotlib i Seaborn.</p>
+  </footer>
+</body>
+</html>

@@ -75,6 +75,12 @@ body {
   border: 1px solid var(--border);
 }
 
+.nav-link.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
 .nav-link:hover,
 .button:hover {
   transform: translateY(-2px);
@@ -113,6 +119,42 @@ body {
 .summary h2,
 .extra h2 {
   margin-top: 0;
+}
+
+.visual-demo {
+  margin: 1.2rem 0 0.6rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(16, 185, 129, 0.08));
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+}
+
+.visual-demo img {
+  width: 100%;
+  max-width: 680px;
+  border-radius: 16px;
+  display: block;
+}
+
+.visual-caption {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.12);
+  font-size: 1rem;
 }
 
 .cards {

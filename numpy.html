@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducció a NumPy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Introducció a NumPy</h1>
+      <p>Descobreix com NumPy facilita el càlcul numèric, l'anàlisi de dades i la visualització amb Python.</p>
+      <div class="hero-buttons">
+        <a href="index.html" class="button primary">Tornar a l'inici</a>
+        <a href="#introduccio" class="button primary">Introducció</a>
+        <a href="#perque" class="button primary">Per què utilitzar-lo</a>
+        <a href="#instalacio" class="button primary">Instal·lació</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-bar" aria-label="Navegació principal">
+    <a href="index.html" class="nav-link">Inici</a>
+    <a href="pandas.html" class="nav-link">Pandas</a>
+    <span class="nav-link active" aria-current="page">NumPy</span>
+    <a href="matplotlib.html" class="nav-link">Matplotlib / Seaborn</a>
+  </nav>
+
+  <main class="container">
+    <section class="summary" id="introduccio">
+      <h2>💡 Introducció</h2>
+      <p>NumPy és la llibreria bàsica per al càlcul numèric amb Python. El seu nom prové de <strong>Numerical Python</strong> i és una eina fonamental per treballar amb dades, matemàtiques i estadística.</p>
+      <p>Es fa servir per crear i manipular vectors, matrius i tensors amb molta eficiència. En l'anàlisi de dades, NumPy és la base sobre la qual es construeixen moltes altres eines, com <strong>Pandas</strong> per a taules i <strong>Matplotlib</strong> per a gràfics.</p>
+      <p>Alguns casos d'ús reals són el processament d'imatges, l'anàlisi de sèries temporals, la modelització estadística, la ciència de dades i la programació científica.</p>
+    </section>
+
+    <section class="cards" id="perque">
+      <article class="card">
+        <h3>Llistes de Python</h3>
+        <p>Les llistes permeten emmagatzemar valors, però no estan optimitzades per a càlculs numèrics intensius. Les operacions amb llistes són més lentes i requereixen codi addicional.</p>
+        <pre><code>llista = [1, 2, 3]
+resultat = [x * 2 for x in llista]
+print(resultat)</code></pre>
+      </article>
+
+      <article class="card">
+        <h3>Arrays de NumPy</h3>
+        <p>Els arrays de NumPy permeten fer operacions de forma immediata i eficient, amb suport per a operacions vectoritzades i càlculs matemàtics avançats.</p>
+        <pre><code>import numpy as np
+array = np.array([1, 2, 3])
+print(array * 2)</code></pre>
+      </article>
+    </section>
+
+    <section class="summary">
+      <h2>⚡ Per què utilitzar NumPy?</h2>
+      <p>NumPy destaca per quatre motius principals:</p>
+      <ul>
+        <li><strong>Velocitat:</strong> els càlculs són molt més ràpids que amb llistes de Python.</li>
+        <li><strong>Rendiment:</strong> està optimitzat per a operacions matemàtiques sobre grans quantitats de dades.</li>
+        <li><strong>Memòria:</strong> utilitza un emmagatzematge més compacte i eficient.</li>
+        <li><strong>Operacions vectoritzades:</strong> permet aplicar una operació a tots els elements d'un array de manera molt senzilla.</li>
+      </ul>
+      <p>Per exemple, si volem sumar dos conjunts de dades, NumPy ho fa element a element de manera automàtica, cosa que simplifica molt el codi.</p>
+    </section>
+
+    <section class="extra" id="instalacio">
+      <h2>🛠️ Instal·lació i importació</h2>
+      <p>Per instal·lar NumPy en l'entorn de Python, podem fer servir <code>pip</code>:</p>
+      <pre><code>pip install numpy</code></pre>
+      <p>Una vegada instal·lada, la importació més habitual és aquesta:</p>
+      <pre><code>import numpy as np</code></pre>
+      <p>Així, fem servir <code>np</code> com a abreviatura per treballar amb la llibreria de manera més ràpida i clara.</p>
+    </section>
+
+    <section class="summary">
+      <h2>🧪 Exemples pràctics de NumPy</h2>
+      <p>Aquests exemples mostren com NumPy simplifica tasques habituals en ciència de dades i matemàtiques.</p>
+
+      <article class="card">
+        <h3>Exemple 1: crear un array i fer operacions</h3>
+        <pre><code>import numpy as np
+
+edats = np.array([16, 17, 18, 19])
+print(edats + 1)</code></pre>
+        <p>Amb NumPy podem sumar 1 a tots els valors d'un array de forma molt senzilla.</p>
+      </article>
+
+      <article class="card">
+        <h3>Exemple 2: calcular la mitjana i la desviació estàndard</h3>
+        <pre><code>import numpy as np
+
+notes = np.array([7.5, 8.0, 6.5, 9.0, 8.5])
+print(np.mean(notes))
+print(np.std(notes))</code></pre>
+        <p>Aquest tipus d'operacions és molt útil per analitzar dades d'alumnes o resultats d'experiments.</p>
+      </article>
+
+      <article class="card">
+        <h3>Exemple 3: crear una matriu i seleccionar dades</h3>
+        <pre><code>import numpy as np
+
+matriu = np.array([[1, 2, 3], [4, 5, 6]])
+print(matriu[1, 2])
+print(matriu[:, 1])</code></pre>
+        <p>Amb matrius podem treballar amb dades organizades en files i columnes, com si fossin taules.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Projecte didàctic de Python per a 2nBAT: Introducció a NumPy per a l'anàlisi i el tractament de dades.</p>
+  </footer>
+</body>
+</html>
