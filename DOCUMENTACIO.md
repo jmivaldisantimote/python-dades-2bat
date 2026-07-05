@@ -29,6 +29,7 @@ La portada presenta:
 - accés directe a les tres llibreries
 - un resum del que s’aprèn
 - seccions de qüestionari i vídeos
+- enllaços directes a les pàgines de Pandas, NumPy i Matplotlib / Seaborn
 
 ### Pàgines de llibreries
 
@@ -36,8 +37,19 @@ Cada pàgina inclou:
 - una introducció pedagògica
 - explicació del perquè d’utilitzar la llibreria
 - apartat d’instal·lació i importació
-- exemples de codi senzills
-- navegació entre llibreries
+- exemples de codi senzills i adaptats a l’alumnat
+- navegació entre llibreries amb la pàgina actual destacada
+- elements visuals per millorar la comprensió
+
+## Canvis recents
+
+S’han incorporat diversos millores al projecte:
+- creació de pàgines independents per a Pandas, NumPy i Matplotlib / Seaborn
+- millora de la navegació entre les pàgines
+- simplificació del menú principal per evitar duplicacions i ambigüitats
+- incorporació d’icones discretes per donar un aspecte més net i accessible
+- afegit d’un exemple visual de gràfic a la pàgina de Matplotlib / Seaborn
+- actualització del README i de la documentació general del projecte
 
 ## Estil visual
 
