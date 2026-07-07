@@ -15,11 +15,23 @@ La pàgina inclou:
 - seccions amb explicacions sobre instal·lació, importació i ús pràctic
 - una navegació principal coherent entre la pàgina inicial i les subpàgines
 - un exemple visual de gràfic a la pàgina de Matplotlib / Seaborn
+- un qüestionari interactiu amb preguntes de diferents tipus i correcció automàtica
+- una pàgina de recursos amb vídeos explicatius i enllaços a documentació externa
 - enllaços generals a qüestionari i recursos
 
 ## Com veure la web
 
-Obre el fitxer `index.html` en un navegador web.
+Per veure la web de forma correcta, es recomana obrir-la amb un servidor local, per exemple:
+
+```bash
+python -m http.server 8000
+```
+
+Després obre:
+
+```text
+http://localhost:8000/python-dades-2bat/index.html
+```
 
 ## Estructura del projecte
 
@@ -27,6 +39,8 @@ Obre el fitxer `index.html` en un navegador web.
 - `numpy.html` → pàgina d’introducció a NumPy
 - `pandas.html` → pàgina d’introducció a Pandas
 - `matplotlib.html` → pàgina d’introducció a Matplotlib i Seaborn
+- `questionari.html` → qüestionari interactiu amb diferents tipus de preguntes
+- `recursos.html` → pàgina de recursos amb vídeos i enllaços addicionals
 - `styles.css` → estils comuns de la web
 - `images/plot-matplotlib.svg` → gràfic d’exemple per a la pàgina de Matplotlib
 

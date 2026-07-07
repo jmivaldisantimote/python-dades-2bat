@@ -31,7 +31,7 @@ La portada presenta:
 - una introducció general al tema
 - accés directe a les tres llibreries
 - un resum del que s’aprèn
-- enllaços al qüestionari i als recursos audiovisuals
+- enllaços al qüestionari interactiu i a la pàgina de recursos
 - navegació clara cap a les explicacions de cada llibreria
 
 ### Pàgines de llibreries
