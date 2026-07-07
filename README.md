@@ -42,6 +42,7 @@ http://localhost:8000/python-dades-2bat/index.html
 - `questionari.html` → qüestionari interactiu amb diferents tipus de preguntes
 - `recursos.html` → pàgina de recursos amb vídeos i enllaços addicionals
 - `styles.css` → estils comuns de la web
+- `js/script.js` → lògica del qüestionari separada en un fitxer JavaScript extern per millorar l’organització
 - `images/plot-matplotlib.svg` → gràfic d’exemple per a la pàgina de Matplotlib
 
 ## Repositori
