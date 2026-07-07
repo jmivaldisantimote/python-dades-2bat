@@ -15,7 +15,7 @@ La pàgina inclou:
 - seccions amb explicacions sobre instal·lació, importació i ús pràctic
 - una navegació principal coherent entre la pàgina inicial i les subpàgines
 - un exemple visual de gràfic a la pàgina de Matplotlib / Seaborn
-- enllaços generals a qüestionari i vídeos
+- enllaços generals a qüestionari i recursos
 
 ## Com veure la web
 
