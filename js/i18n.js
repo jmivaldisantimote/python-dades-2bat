@@ -1107,16 +1107,15 @@ const AppI18n = (() => {
   }
 
   function formatCurrentDateTime() {
-    const lang = getLanguage();
     const now = new Date();
+    const lang = getLanguage();
     const locale = locales[lang] || locales[defaultLang];
+    const weekday = new Intl.DateTimeFormat(locale, { weekday: 'short' }).format(now);
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = String(now.getFullYear()).slice(-2);
     return {
-      date: new Intl.DateTimeFormat(locale, {
-        weekday: 'long',
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric'
-      }).format(now),
+      date: `${weekday} ${day}-${month}-${year}`,
       time: new Intl.DateTimeFormat(locale, {
         hour: '2-digit',
         minute: '2-digit',
