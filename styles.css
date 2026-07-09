@@ -202,6 +202,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
+  min-width: 0;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -246,8 +247,13 @@ body {
   opacity: 0;
   transform: scale(0.8);
   pointer-events: none;
-  width: 0;
+  max-width: 0;
+  min-width: 0;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  flex: 0 1 0;
 }
 
 .date-time-panel.is-collapsed .date-time-toggle {
