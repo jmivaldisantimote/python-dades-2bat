@@ -1,152 +1,4 @@
-const questions = [
-  {
-    library: 'pandas',
-    type: 'multiple',
-    question: 'Quina estructura principal s’utilitza a Pandas per treballar amb taules?',
-    options: ['DataFrame', 'Array', 'Llista', 'Diccionari'],
-    answer: 0,
-    explanation: 'El DataFrame és la estructura principal de Pandas perquè organitza les dades en files i columnes, semblant a una taula.'
-  },
-  {
-    library: 'pandas',
-    type: 'multiple',
-    question: 'Quina funció permet llegir dades d’un fitxer CSV amb Pandas?',
-    options: ['read_csv()', 'load_csv()', 'import_csv()', 'open_csv()'],
-    answer: 0,
-    explanation: 'read_csv() és la funció estàndard per llegir fitxers CSV i convertir-los en un DataFrame.'
-  },
-  {
-    library: 'pandas',
-    type: 'multiple',
-    question: 'Quina instrucció serveix per seleccionar una columna?',
-    options: ['df["nom"]', 'df.get_column("nom")', 'df.select("nom")', 'df.column("nom")'],
-    answer: 0,
-    explanation: 'Per obtenir una columna de Pandas, s’utilitza la notació df["nom"] o df.nom, perquè la columna és una sèrie.'
-  },
-  {
-    library: 'pandas',
-    type: 'multiple',
-    question: 'Quina operació permet agrupar dades per una columna?',
-    options: ['groupby()', 'sort_values()', 'merge()', 'dropna()'],
-    answer: 0,
-    explanation: 'groupby() agrupa les files segons una columna per poder fer operacions com resumir o comptar valors.'
-  },
-  {
-    library: 'pandas',
-    type: 'multiple',
-    question: 'Quina funció elimina les files amb valors buits?',
-    options: ['dropna()', 'fillna()', 'replace()', 'isna()'],
-    answer: 0,
-    explanation: 'dropna() elimina les files o columnes que tenen valors buits, mentre que fillna() els omple.'
-  },
-  {
-    library: 'pandas',
-    type: 'boolean',
-    question: 'És cert que Pandas és ideal per treballar amb taules en format DataFrame?',
-    options: ['Vertader', 'Fals'],
-    answer: 0,
-    explanation: 'Sí, Pandas està dissenyat precisament per treballar amb dades tabulars mitjançant DataFrames.'
-  },
-  {
-    library: 'pandas',
-    type: 'fill',
-    question: 'Escriu el nom de l’estructura principal de Pandas.',
-    answer: 'dataframe',
-    answers: ['dataframe', 'data frame'],
-    explanation: 'La resposta correcta és DataFrame, la forma principal de representar taules a Pandas.'
-  },
-  {
-    library: 'numpy',
-    type: 'multiple',
-    question: 'Quina és la forma principal de treballar amb dades a NumPy?',
-    options: ['Arrays', 'DataFrames', 'Llistes', 'Gràfics'],
-    answer: 0,
-    explanation: 'NumPy treballa principalment amb arrays, que són estructures multidimensionals eficients per a càlcul numèric.'
-  },
-  {
-    library: 'numpy',
-    type: 'multiple',
-    question: 'Quina funció crea un array amb valors entre dos límits?',
-    options: ['arange()', 'range()', 'linspace()', 'create_array()'],
-    answer: 2,
-    explanation: 'linspace() crea un conjunt de valors equiespaiats entre dos límits, mentre que arange() utilitza un pas concret.'
-  },
-  {
-    library: 'numpy',
-    type: 'multiple',
-    question: 'Quina propietat d’un array indica la seva forma?',
-    options: ['shape', 'size', 'dtype', 'ndim'],
-    answer: 0,
-    explanation: 'shape mostra les dimensions de l’array, com ara (3, 4) per una matriu de 3 files i 4 columnes.'
-  },
-  {
-    library: 'numpy',
-    type: 'multiple',
-    question: 'Quina operació fa la mitjana dels valors d’un array?',
-    options: ['mean()', 'sum()', 'median()', 'max()'],
-    answer: 0,
-    explanation: 'mean() calcula la mitjana aritmètica dels valors de l’array.'
-  },
-  {
-    library: 'numpy',
-    type: 'fill',
-    question: 'Com es diu la funció que calcula la mitjana d’un array?',
-    answer: 'mean',
-    answers: ['mean', 'mean()'],
-    explanation: 'La funció mean() calcula la mitjana aritmètica dels valors de l’array.'
-  },
-  {
-    library: 'matplotlib',
-    type: 'multiple',
-    question: 'Quina llibreria s’utilitza habitualment per crear gràfics en Python?',
-    options: ['Matplotlib', 'Pandas', 'NumPy', 'SciPy'],
-    answer: 0,
-    explanation: 'Matplotlib és la llibreria clàssica per crear gràfics de manera flexible i personalitzable.'
-  },
-  {
-    library: 'matplotlib',
-    type: 'multiple',
-    question: 'Quina funció crea un gràfic de línies?',
-    options: ['plot()', 'bar()', 'scatter()', 'hist()'],
-    answer: 0,
-    explanation: 'plot() és la funció habitual per dibuixar gràfics de línies amb valors seqüencials.'
-  },
-  {
-    library: 'matplotlib',
-    type: 'multiple',
-    question: 'Quina ordre mostra el gràfic a la pantalla?',
-    options: ['show()', 'display()', 'print()', 'render()'],
-    answer: 0,
-    explanation: 'show() mostra el gràfic que s’ha creat; és l’últim pas per veure’l visualment.'
-  },
-  {
-    library: 'matplotlib',
-    type: 'multiple',
-    question: 'Quina funció serveix per afegir un títol al gràfic?',
-    options: ['title()', 'label()', 'legend()', 'axis()'],
-    answer: 0,
-    explanation: 'title() assigna un títol al gràfic per fer-lo més clar i comprensible.'
-  },
-  {
-    library: 'matplotlib',
-    type: 'boolean',
-    question: 'És cert que Seaborn amplia Matplotlib amb estils i gràfics estadístics?',
-    options: ['Vertader', 'Fals'],
-    answer: 0,
-    explanation: 'Sí, Seaborn aporta estils moderns i visualitzacions estadístiques sobre Matplotlib.'
-  },
-  {
-    library: 'matplotlib',
-    type: 'matching',
-    question: 'Relaciona cada funció amb el que fa:',
-    pairs: [
-      { left: 'plot()', options: ['Dibuixa una línia', 'Mostra el gràfic', 'Afegeix un títol'], answer: 'Dibuixa una línia' },
-      { left: 'show()', options: ['Dibuixa una línia', 'Mostra el gràfic', 'Afegeix un títol'], answer: 'Mostra el gràfic' },
-      { left: 'title()', options: ['Dibuixa una línia', 'Mostra el gràfic', 'Afegeix un títol'], answer: 'Afegeix un títol' }
-    ],
-    explanation: 'plot() crea el gràfic, show() el mostra i title() li posa un títol.'
-  }
-];
+﻿let questions = window.AppI18n ? window.AppI18n.getQuizQuestions() : [];
 
 const startQuizBtn = document.getElementById('startQuizBtn');
 const restartQuizBtn = document.getElementById('restartQuizBtn');
@@ -162,6 +14,10 @@ const scoreValue = document.getElementById('scoreValue');
 
 let currentQuestions = [];
 let score = 0;
+
+function t(key, ...args) {
+  return window.AppI18n ? window.AppI18n.t(key, ...args) : key;
+}
 
 function shuffle(array) {
   const copy = [...array];
@@ -215,7 +71,7 @@ function buildLibraryQuestions(libraryQuestions) {
 function buildQuiz() {
   const selectedLibraries = getSelectedLibraries();
   if (selectedLibraries.length === 0) {
-    selectionMessage.textContent = 'Selecciona almenys una llibreria per començar.';
+    selectionMessage.textContent = t('selectLibrary');
     quizWrapper.classList.add('hidden');
     return;
   }
@@ -231,11 +87,11 @@ function buildQuiz() {
   quizForm.innerHTML = '';
   resultBox.classList.add('hidden');
   resultBox.textContent = '';
-  selectionMessage.textContent = `S’han seleccionat ${selectedLibraries.length} llibreria/es. Tindràs ${currentQuestions.length} preguntes aleatòries.`;
+  selectionMessage.textContent = t('selectedQuestions', selectedLibraries.length, currentQuestions.length);
   quizWrapper.classList.remove('hidden');
   totalQuestions.textContent = currentQuestions.length;
   currentQuestion.textContent = '1';
-  scoreValue.textContent = '0 punts';
+  scoreValue.textContent = t('zeroPoints');
   progressBar.style.width = '0%';
   submitQuizBtn.disabled = true;
   submitQuizBtn.classList.add('is-disabled');
@@ -256,7 +112,7 @@ function buildQuiz() {
       input.type = 'text';
       input.name = `question-${index}`;
       input.className = 'fill-input';
-      input.placeholder = 'Escriu la resposta';
+      input.placeholder = t('writeAnswer');
       responseBox.appendChild(input);
     } else if (question.type === 'matching') {
       const list = document.createElement('div');
@@ -275,7 +131,7 @@ function buildQuiz() {
 
         const placeholder = document.createElement('option');
         placeholder.value = '';
-        placeholder.textContent = 'Tria una opció';
+        placeholder.textContent = t('chooseOption');
         select.appendChild(placeholder);
 
         pair.options.forEach(option => {
@@ -379,10 +235,10 @@ function renderFeedback() {
       return;
     }
 
-    let message = `Resposta correcta: <strong>${question.type === 'matching' ? question.pairs.map(pair => `${pair.left} → ${pair.answer}`).join(' · ') : question.options?.[question.answer] || question.answer}</strong>. ${question.explanation}`;
+    let message = `${t('correctAnswer')} <strong>${question.type === 'matching' ? question.pairs.map(pair => `${pair.left} → ${pair.answer}`).join(' · ') : question.options?.[question.answer] || question.answer}</strong>. ${question.explanation}`;
 
     if (!hasAnswered(question, index)) {
-      message = `No has respost. ${message}`;
+      message = `${t('unanswered')} ${message}`;
     }
 
     feedback.innerHTML = message;
@@ -414,27 +270,40 @@ function showResult() {
 
   if (answeredCount < total) {
     resultBox.classList.remove('hidden');
-    resultBox.textContent = 'Has deixat preguntes sense respondre. Revisa les explicacions i torna-ho a provar.';
+    resultBox.textContent = t('missingAnswers');
     resultBox.className = 'result-box warning';
     return;
   }
 
-  let message = `Has encertat ${points} de ${total} preguntes (${percent}%).`;
+  let message = t('result', points, total, percent);
 
   if (percent >= 80) {
-    message += ' Molt bé!';
+    message += t('great');
   } else if (percent >= 50) {
-    message += ' Bona feina, però pots millorar.';
+    message += t('good');
   } else {
-    message += ' Repassa una mica més les llibreries.';
+    message += t('review');
   }
 
   resultBox.classList.remove('hidden');
   resultBox.textContent = message;
   resultBox.className = 'result-box success';
-  scoreValue.textContent = `${points} punts`;
+  scoreValue.textContent = t('points', points);
   progressBar.style.width = '100%';
   currentQuestion.textContent = total;
+}
+
+function updateProgress() {
+  const total = currentQuestions.length;
+  const answeredCount = currentQuestions.reduce((count, question, index) => count + (hasAnswered(question, index) ? 1 : 0), 0);
+  currentQuestion.textContent = Math.min(answeredCount, total);
+  const percent = total === 0 ? 0 : Math.round((answeredCount / total) * 100);
+  progressBar.style.width = `${percent}%`;
+  scoreValue.textContent = t('points', score);
+
+  const allAnswered = answeredCount === total;
+  submitQuizBtn.disabled = !allAnswered;
+  submitQuizBtn.classList.toggle('is-disabled', !allAnswered);
 }
 
 const libraryCheckboxes = document.querySelectorAll('.library-option input');
@@ -449,28 +318,11 @@ startQuizBtn.addEventListener('click', buildQuiz);
 restartQuizBtn.addEventListener('click', buildQuiz);
 submitQuizBtn.addEventListener('click', showResult);
 
-quizForm.addEventListener('input', () => {
-  const total = currentQuestions.length;
-  const answeredCount = currentQuestions.reduce((count, question, index) => count + (hasAnswered(question, index) ? 1 : 0), 0);
-  currentQuestion.textContent = Math.min(answeredCount, total);
-  const percent = total === 0 ? 0 : Math.round((answeredCount / total) * 100);
-  progressBar.style.width = `${percent}%`;
-  scoreValue.textContent = `${score} punts`;
+quizForm.addEventListener('input', updateProgress);
+quizForm.addEventListener('change', updateProgress);
 
-  const allAnswered = answeredCount === total;
-  submitQuizBtn.disabled = !allAnswered;
-  submitQuizBtn.classList.toggle('is-disabled', !allAnswered);
+window.addEventListener('appLanguageChange', () => {
+  questions = window.AppI18n ? window.AppI18n.getQuizQuestions() : questions;
+  buildQuiz();
 });
 
-quizForm.addEventListener('change', () => {
-  const total = currentQuestions.length;
-  const answeredCount = currentQuestions.reduce((count, question, index) => count + (hasAnswered(question, index) ? 1 : 0), 0);
-  currentQuestion.textContent = Math.min(answeredCount, total);
-  const percent = total === 0 ? 0 : Math.round((answeredCount / total) * 100);
-  progressBar.style.width = `${percent}%`;
-  scoreValue.textContent = `${score} punts`;
-
-  const allAnswered = answeredCount === total;
-  submitQuizBtn.disabled = !allAnswered;
-  submitQuizBtn.classList.toggle('is-disabled', !allAnswered);
-});
