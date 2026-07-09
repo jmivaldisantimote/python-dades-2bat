@@ -18,6 +18,9 @@ La pàgina inclou:
 - un qüestionari interactiu amb preguntes de diferents tipus i correcció automàtica
 - una pàgina de recursos amb vídeos explicatius i enllaços a documentació externa
 - enllaços generals a qüestionari i recursos
+- selector d'idioma (català, castellà, anglés)
+- panell de data i hora actual amb format `ddd dd-mm-yy` i botó de tancament
+- mode clar / fosc amb recordatori de preferència
 
 ## Com veure la web
 
@@ -42,6 +45,7 @@ http://localhost:8000/python-dades-2bat/index.html
 - `questionari.html` → qüestionari interactiu amb diferents tipus de preguntes
 - `recursos.html` → pàgina de recursos amb vídeos i enllaços addicionals
 - `styles.css` → estils comuns de la web
+- `js/i18n.js` → internacionalització (català, castellà, anglés), panell de data i hora, i canvi de tema
 - `js/script.js` → lògica del qüestionari separada en un fitxer JavaScript extern per millorar l’organització
 - `images/plot-matplotlib.svg` → gràfic d’exemple per a la pàgina de Matplotlib
 
