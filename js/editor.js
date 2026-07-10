@@ -77,18 +77,11 @@ for _fig_save in _figs_save:
 '\\n'.join(_parts_save)
 `;
           const result = await pyodide.runPythonAsync(wrapped);
-          if (result !== undefined && result !== '' && !out.trim()) {
-            out += String(result);
-          }
           let html = out.trim() ? '<pre>' + out.trim() + '</pre>' : '';
-          let plotHtml = '';
           if (typeof result === 'string' && result.includes('<img')) {
-            plotHtml = result;
-          } else if (typeof result === 'string' && result !== '') {
-            html = '<pre>' + result + '</pre>';
-          }
-          if (plotHtml) {
-            html += (html ? '\n' : '') + plotHtml;
+            html += (html ? '\n' : '') + result;
+          } else if (result !== undefined && result !== '') {
+            html += (html ? '\n' : '') + '<pre>' + String(result) + '</pre>';
           }
           output.innerHTML = html || '(no output)';
           output.className = 'code-output success';
