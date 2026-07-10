@@ -6,13 +6,10 @@
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js';
     script.onload = async () => {
-      document.querySelectorAll('.editor-status').forEach(el => el.textContent = 'Carregant Python...');
       pyodide = await globalThis.loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/' });
-      document.querySelectorAll('.editor-status').forEach(el => el.textContent = 'Carregant llibreries (pandas, numpy, matplotlib)...');
       await pyodide.loadPackage(['pandas', 'numpy', 'matplotlib']);
       ready = true;
       document.querySelectorAll('.run-btn').forEach(btn => btn.disabled = false);
-      document.querySelectorAll('.editor-status').forEach(el => el.textContent = '');
     };
     document.head.appendChild(script);
   }
@@ -40,13 +37,8 @@
       const output = document.createElement('div');
       output.className = 'code-output';
 
-      const status = document.createElement('span');
-      status.className = 'editor-status';
-      status.textContent = 'Carregant Python...';
-
       cell.appendChild(textarea);
       cell.appendChild(runBtn);
-      cell.appendChild(status);
       cell.appendChild(output);
       pre.replaceWith(cell);
 
