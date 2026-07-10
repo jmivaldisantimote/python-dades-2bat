@@ -8,8 +8,8 @@
     script.onload = async () => {
       document.querySelectorAll('.editor-status').forEach(el => el.textContent = 'Carregant Python...');
       pyodide = await globalThis.loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/' });
-      document.querySelectorAll('.editor-status').forEach(el => el.textContent = 'Carregant llibreries (pandas, numpy)...');
-      await pyodide.loadPackage(['pandas', 'numpy']);
+      document.querySelectorAll('.editor-status').forEach(el => el.textContent = 'Carregant llibreries (pandas, numpy, matplotlib)...');
+      await pyodide.loadPackage(['pandas', 'numpy', 'matplotlib']);
       ready = true;
       document.querySelectorAll('.run-btn').forEach(btn => btn.disabled = false);
       document.querySelectorAll('.editor-status').forEach(el => el.textContent = '');
