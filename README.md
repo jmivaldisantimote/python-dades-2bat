@@ -24,6 +24,8 @@ La pàgina inclou:
 - navegació principal coherent amb la pàgina actual destacada
 - editor de codi Python interactiu a les pàgines de Pandas, NumPy i Matplotlib (basat en Pyodide, s'executa al navegador sense servidor)
 - blocs d'instal·lació i importació marcats com a estàtics (no editables)
+- només el darrer bloc de codi de `matplotlib.html` és editable; la resta són estàtics
+- els gràfics de matplotlib es mostren com a imatges PNG a sota del codi
 
 ## Estil visual
 
@@ -53,7 +55,7 @@ http://localhost:8000/python-dades-2bat/index.html
 - `recursos.html` → pàgina de recursos amb vídeos i enllaços addicionals
 - `styles.css` → estils comuns de la web
 - `js/i18n.js` → internacionalització (català, castellà, anglés), panell de data i hora, i canvi de tema
-- `js/editor.js` → editor de codi Python interactiu amb execució via Pyodide (pandas, numpy, matplotlib)
+- `js/editor.js` → editor de codi Python interactiu amb execució via Pyodide (pandas, numpy, matplotlib, seaborn via micropip)
 - `js/script.js` → lògica del qüestionari
 - `images/` → recursos gràfics, inclòs l'exemple de Matplotlib
 
@@ -66,9 +68,12 @@ http://localhost:8000/python-dades-2bat/index.html
 - Creat qüestionari dinàmic i autocorrectiu amb tipus de preguntes variats
 - Afegida pàgina de recursos amb vídeos i enllaços externs
 - Implementat editor de codi Python interactiu (Pyodide) a pandas.html, numpy.html i matplotlib.html
-- Captura de stdout/stderr per a mostrar eixida de print()
-- Càrrega automàtica de pandas, numpy i matplotlib a l'editor
+- Captura de stdout (via StringIO) per a mostrar eixida de print()
+- Càrrega automàtica de pandas, numpy, matplotlib i micropip a l'editor
+- Instal·lació de seaborn en segon pla via micropip
 - Blocs d'instal·lació marcats com a estàtics (no editables)
+- Captura de gràfics matplotlib com a imatges PNG dins del panell de sortida
+- Només el darrer bloc executable a matplotlib.html; la resta, estàtics
 
 ## Possibles ampliacions futures
 
