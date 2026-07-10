@@ -22,6 +22,8 @@ La pàgina inclou:
 - panell de data i hora actual amb format `ddd dd-mm-yy` i botó de tancament
 - mode clar / fosc amb recordatori de preferència
 - navegació principal coherent amb la pàgina actual destacada
+- editor de codi Python interactiu a les pàgines de Pandas, NumPy i Matplotlib (basat en Pyodide, s'executa al navegador sense servidor)
+- blocs d'instal·lació i importació marcats com a estàtics (no editables)
 
 ## Estil visual
 
@@ -51,6 +53,7 @@ http://localhost:8000/python-dades-2bat/index.html
 - `recursos.html` → pàgina de recursos amb vídeos i enllaços addicionals
 - `styles.css` → estils comuns de la web
 - `js/i18n.js` → internacionalització (català, castellà, anglés), panell de data i hora, i canvi de tema
+- `js/editor.js` → editor de codi Python interactiu amb execució via Pyodide (pandas, numpy, matplotlib)
 - `js/script.js` → lògica del qüestionari
 - `images/` → recursos gràfics, inclòs l'exemple de Matplotlib
 
@@ -62,6 +65,10 @@ http://localhost:8000/python-dades-2bat/index.html
 - Afegit mode clar / fosc
 - Creat qüestionari dinàmic i autocorrectiu amb tipus de preguntes variats
 - Afegida pàgina de recursos amb vídeos i enllaços externs
+- Implementat editor de codi Python interactiu (Pyodide) a pandas.html, numpy.html i matplotlib.html
+- Captura de stdout/stderr per a mostrar eixida de print()
+- Càrrega automàtica de pandas, numpy i matplotlib a l'editor
+- Blocs d'instal·lació marcats com a estàtics (no editables)
 
 ## Possibles ampliacions futures
 
