@@ -63,17 +63,14 @@ import matplotlib.pyplot as _plt
 
 _plt_imgs = []
 def _plt_show_capture(*a,**kw):
-    try:
-        _fig = _plt.gcf()
-        _buf = _io.BytesIO()
-        _fig.savefig(_buf, format='png', bbox_inches='tight')
-        _buf.seek(0)
-        _b = _b64.b64encode(_buf.read()).decode()
-        _plt_imgs.append(_b)
-        _buf.close()
-        _plt.close(_fig)
-    except Exception:
-        pass
+    _fig = _plt.gcf()
+    _buf = _io.BytesIO()
+    _fig.savefig(_buf, format='png', bbox_inches='tight')
+    _buf.seek(0)
+    _b = _b64.b64encode(_buf.read()).decode()
+    _plt_imgs.append(_b)
+    _buf.close()
+    _plt.close(_fig)
 
 _plt.show = _plt_show_capture
 
