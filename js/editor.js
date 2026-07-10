@@ -56,10 +56,14 @@
         output.innerHTML = '';
         output.className = 'code-output running';
         try {
+          let out = '';
+          pyodide.setStdout({ batched: t => { out += t + '\n'; } });
+          pyodide.setStderr({ batched: t => { out += t + '\n'; } });
           const result = await pyodide.runPythonAsync(src);
-          if (result !== undefined) {
-            output.textContent = String(result);
+          if (result !== undefined && !out.trim()) {
+            out += String(result);
           }
+          output.textContent = out.trim();
           output.className = 'code-output success';
         } catch (err) {
           output.textContent = String(err);
