@@ -6,8 +6,14 @@
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js';
     script.onload = async () => {
-      pyodide = await globalThis.loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/' });
-      await pyodide.loadPackage(['pandas', 'numpy', 'matplotlib', 'seaborn']);
+      try {
+        pyodide = await globalThis.loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/' });
+        await pyodide.loadPackage(['pandas', 'numpy', 'matplotlib']);
+        pyodide.runPythonAsync('import micropip; await micropip.install(\"seaborn\")')
+          .catch(e => console.warn('seaborn no instal·lat:', e));
+      } catch (e) {
+        console.error('Error inicialitzant Pyodide:', e);
+      }
       ready = true;
       document.querySelectorAll('.run-btn').forEach(btn => btn.disabled = false);
     };
