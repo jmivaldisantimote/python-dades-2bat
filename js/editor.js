@@ -57,6 +57,11 @@
           let out = '';
           pyodide.setStdout({ batched: t => { out += t + '\n'; } });
           pyodide.setStderr({ batched: t => { out += t + '\n'; } });
+          await pyodide.runPythonAsync(`
+import matplotlib.pyplot as _mpl_plt
+_mpl_show_orig = _mpl_plt.show
+_mpl_plt.show = lambda *a,**kw: None
+`);
           const result = await pyodide.runPythonAsync(src);
           if (result !== undefined && !out.trim()) {
             out += String(result);
