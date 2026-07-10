@@ -691,6 +691,94 @@ li code {
   display: none;
 }
 
+.code-cell {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.code-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--code-bg);
+  color: var(--code-text);
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  resize: vertical;
+  tab-size: 4;
+  outline: none;
+}
+
+.code-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.run-btn {
+  margin-top: 0.6rem;
+  padding: 0.5rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.run-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.run-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.code-output {
+  margin-top: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  background: var(--soft);
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  display: none;
+}
+
+.code-output.running,
+.code-output.success,
+.code-output.error {
+  display: block;
+}
+
+.code-output.success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: var(--text);
+}
+
+.code-output.error {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #b91c1c;
+}
+
+.editor-status {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
 @media (max-width: 640px) {
   .language-switcher {
     top: 0.6rem;
