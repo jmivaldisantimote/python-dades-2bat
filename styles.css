@@ -772,7 +772,25 @@ li code {
   color: #b91c1c;
 }
 
+.code-output.success {
+  white-space: normal;
+}
 
+.code-output.success pre {
+  white-space: pre-wrap;
+  margin: 0 0 0.5rem;
+  padding: 0.5rem;
+  background: var(--code-bg);
+  border-radius: 8px;
+}
+
+.plot-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0.5rem auto;
+  border-radius: 8px;
+}
 
 @media (max-width: 640px) {
   .language-switcher {

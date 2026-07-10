@@ -61,7 +61,26 @@
           if (result !== undefined && !out.trim()) {
             out += String(result);
           }
-          output.textContent = out.trim();
+          let html = out.trim() ? '<pre>' + out.trim() + '</pre>' : '';
+          html += await pyodide.runPythonAsync(`
+try:
+    import matplotlib.pyplot as plt
+    import io, base64
+    buf = io.BytesIO()
+    figs = [plt.figure(n) for n in plt.get_fignums()]
+    parts = []
+    for fig in figs:
+        fig.savefig(buf, format='png', bbox_inches='tight')
+        buf.seek(0)
+        b64 = base64.b64encode(buf.read()).decode()
+        buf.truncate(0); buf.seek(0)
+        parts.append('<img class="plot-img" src="data:image/png;base64,' + str(b64) + '">')
+        plt.close(fig)
+    '\\n'.join(parts)
+except Exception:
+    ''
+`);
+          output.innerHTML = html;
           output.className = 'code-output success';
         } catch (err) {
           output.textContent = String(err);
