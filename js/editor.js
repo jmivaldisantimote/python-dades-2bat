@@ -54,44 +54,39 @@
         output.innerHTML = '';
         output.className = 'code-output running';
         try {
+          let out = '';
+          pyodide.setStdout({ batched: t => { out += t + '\n'; } });
+          pyodide.setStderr({ batched: t => { out += t + '\n'; } });
           const wrapped = `
-import io as _io, sys as _sys
-_io_cap = _io.StringIO()
-_sys.stdout = _io_cap
-
+import io as _io, base64 as _b64
 import matplotlib.pyplot as _plt
-_plt.show = lambda *a,**kw: None
+
+_plt_imgs = []
+def _plt_show_capture(*a,**kw):
+    try:
+        _fig = _plt.gcf()
+        _buf = _io.BytesIO()
+        _fig.savefig(_buf, format='png', bbox_inches='tight')
+        _buf.seek(0)
+        _b = _b64.b64encode(_buf.read()).decode()
+        _plt_imgs.append(_b)
+        _buf.close()
+        _plt.close(_fig)
+    except Exception:
+        pass
+
+_plt.show = _plt_show_capture
 
 ${src}
 
-_sys.stdout = _sys.__stdout__
-_stdout = _io_cap.getvalue()
-
-import base64 as _b64
-_buf = _io.BytesIO()
-_figs = [_plt.figure(n) for n in _plt.get_fignums()]
-_parts = []
-for _fig in _figs:
-    _fig.savefig(_buf, format='png', bbox_inches='tight')
-    _buf.seek(0)
-    _img = _b64.b64encode(_buf.read()).decode()
-    _buf.truncate(0); _buf.seek(0)
-    _parts.append(f'<img class="plot-img" src="data:image/png;base64,{_img}">')
-    _plt.close(_fig)
-
-(_stdout, '\\n'.join(_parts))
+'||'.join(_plt_imgs)
 `;
-          const result = await pyodide.runPythonAsync(wrapped);
-          let stdout = '', plotHtml = '';
-          if (Array.isArray(result) && result.length === 2) {
-            stdout = result[0] || '';
-            plotHtml = result[1] || '';
-          } else if (typeof result === 'string') {
-            stdout = result;
-          }
-          let html = stdout ? '<pre>' + stdout.trim() + '</pre>' : '';
-          if (plotHtml) {
-            html += (html ? '\n' : '') + plotHtml;
+          const imgs = await pyodide.runPythonAsync(wrapped);
+          let html = out.trim() ? '<pre>' + out.trim() + '</pre>' : '';
+          if (typeof imgs === 'string' && imgs) {
+            for (const b64 of imgs.split('||')) {
+              if (b64) html += (html ? '\n' : '') + '<img class="plot-img" src="data:image/png;base64,' + b64 + '">';
+            }
           }
           output.innerHTML = html || '(no output)';
           output.className = 'code-output success';
