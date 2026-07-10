@@ -18,7 +18,7 @@
   }
 
   function setupCells() {
-    document.querySelectorAll('pre > code').forEach((codeEl, i) => {
+    document.querySelectorAll('pre:not(.static-code) > code').forEach((codeEl, i) => {
       const pre = codeEl.parentElement;
       if (pre.closest('.code-cell')) return;
 
