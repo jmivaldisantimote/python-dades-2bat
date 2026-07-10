@@ -7,7 +7,7 @@
     script.src = 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js';
     script.onload = async () => {
       pyodide = await globalThis.loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/' });
-      await pyodide.loadPackage(['pandas', 'numpy', 'matplotlib']);
+      await pyodide.loadPackage(['pandas', 'numpy', 'matplotlib', 'seaborn']);
       ready = true;
       document.querySelectorAll('.run-btn').forEach(btn => btn.disabled = false);
     };
