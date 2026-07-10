@@ -8,7 +8,7 @@
     script.onload = async () => {
       try {
         pyodide = await globalThis.loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/' });
-        await pyodide.loadPackage(['pandas', 'numpy', 'matplotlib']);
+        await pyodide.loadPackage(['pandas', 'numpy', 'matplotlib', 'micropip']);
         pyodide.runPythonAsync('import micropip; await micropip.install(\"seaborn\")')
           .catch(e => console.warn('seaborn no instal·lat:', e));
       } catch (e) {
