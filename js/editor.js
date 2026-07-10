@@ -74,7 +74,7 @@ for _fig_save in _figs_save:
     _buf_save.truncate(0); _buf_save.seek(0)
     _parts_save.append('<img class="plot-img" src="data:image/png;base64,' + str(_b64_save) + '">')
     _plt_save.close(_fig_save)
-'\n'.join(_parts_save)
+'\\n'.join(_parts_save)
 `;
           const result = await pyodide.runPythonAsync(wrapped);
           if (result !== undefined && result !== '' && !out.trim()) {
