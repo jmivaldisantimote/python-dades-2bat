@@ -54,34 +54,44 @@
         output.innerHTML = '';
         output.className = 'code-output running';
         try {
-          let out = '';
-          pyodide.setStdout({ batched: t => { out += t + '\n'; } });
-          pyodide.setStderr({ batched: t => { out += t + '\n'; } });
           const wrapped = `
-import matplotlib.pyplot as _plt_save
-_plt_save.show = lambda *a,**kw: None
+import io as _io, sys as _sys
+_io_cap = _io.StringIO()
+_sys.stdout = _io_cap
+
+import matplotlib.pyplot as _plt
+_plt.show = lambda *a,**kw: None
 
 ${src}
 
-import io as _io_save, base64 as _b64_save
-_buf_save = _io_save.BytesIO()
-_figs_save = [_plt_save.figure(n) for n in _plt_save.get_fignums()]
-_parts_save = []
-for _fig_save in _figs_save:
-    _fig_save.savefig(_buf_save, format='png', bbox_inches='tight')
-    _buf_save.seek(0)
-    _b64_save = _b64_save.b64encode(_buf_save.read()).decode()
-    _buf_save.truncate(0); _buf_save.seek(0)
-    _parts_save.append('<img class="plot-img" src="data:image/png;base64,' + str(_b64_save) + '">')
-    _plt_save.close(_fig_save)
-'\\n'.join(_parts_save)
+_sys.stdout = _sys.__stdout__
+_stdout = _io_cap.getvalue()
+
+import base64 as _b64
+_buf = _io.BytesIO()
+_figs = [_plt.figure(n) for n in _plt.get_fignums()]
+_parts = []
+for _fig in _figs:
+    _fig.savefig(_buf, format='png', bbox_inches='tight')
+    _buf.seek(0)
+    _img = _b64.b64encode(_buf.read()).decode()
+    _buf.truncate(0); _buf.seek(0)
+    _parts.append(f'<img class="plot-img" src="data:image/png;base64,{_img}">')
+    _plt.close(_fig)
+
+(_stdout, '\\n'.join(_parts))
 `;
           const result = await pyodide.runPythonAsync(wrapped);
-          let html = out.trim() ? '<pre>' + out.trim() + '</pre>' : '';
-          if (typeof result === 'string' && result.includes('<img')) {
-            html += (html ? '\n' : '') + result;
-          } else if (result !== undefined && result !== '') {
-            html += (html ? '\n' : '') + '<pre>' + String(result) + '</pre>';
+          let stdout = '', plotHtml = '';
+          if (Array.isArray(result) && result.length === 2) {
+            stdout = result[0] || '';
+            plotHtml = result[1] || '';
+          } else if (typeof result === 'string') {
+            stdout = result;
+          }
+          let html = stdout ? '<pre>' + stdout.trim() + '</pre>' : '';
+          if (plotHtml) {
+            html += (html ? '\n' : '') + plotHtml;
           }
           output.innerHTML = html || '(no output)';
           output.className = 'code-output success';
